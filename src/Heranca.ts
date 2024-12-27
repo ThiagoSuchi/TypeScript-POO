@@ -1,4 +1,4 @@
-export class Pessoa {
+export class Pessoa {// Super class
     constructor (
         public readonly nome: string,
         public readonly sobrenome: string,
@@ -21,8 +21,24 @@ export class Pessoa {
 
 }
 
-// Aqui essas outras classe estão herdando todos os valores e campos da classe Pessoa
-export class Aluno extends Pessoa {}// extends indica que uma class está herdando outra
+// Aqui essas outras classes(subclasses) estão herdando todos os valores e campos da classe Pessoa
+export class Aluno extends Pessoa {// extends indica que uma class está herdando outra
+    constructor (
+        nome: string,
+        sobrenome: string,
+        idade: number,
+        cpf: string,
+        senha: string,
+        public sala: string,
+    ) {
+        super(nome, sobrenome, idade, cpf, senha);
+    }
+    
+    getNomeCompleto(): string {
+        const result = super.getNomeCompleto()
+        return result + ' ' + 'isso é polimorfismo'
+    }
+}
 
 // Polimorfismo:
 export class Professor extends Pessoa {
@@ -33,10 +49,12 @@ export class Professor extends Pessoa {
 }
 
 const pessoa1 = new Pessoa('Luan', 'Vasquez Buarque', 24, '94387553203', 'luanzinDela223344#')
-const pessoa2 = new Aluno('Amanda', 'Bartinela Mendes', 22, '05172223402', 'amanda@!Bartilena22')
+const pessoa2 = new Aluno('Amanda', 'Bartinela Mendes', 22, '05172223402', 'amanda@!Bartilena22', '3ºA')
 const pessoa3 = new Professor('Marta', 'Souza Huffnof', 28, '99382337708', 'tutaligadEE@123321')
 
 console.log(pessoa1.getNomeCompleto());
 console.log(pessoa2.getNomeCompleto());
 console.log(pessoa3.getNomeCompleto());
+
+console.log(pessoa2);
 
