@@ -24,7 +24,9 @@ export class Empresa {
     }
 }
 
+// Atalho de class
 export class Colaboradores {
+   // Ao ultilizar o atalho de class é necessário especificar a palavra chave(private, protected, public)
     constructor(
         public readonly nome: string, 
         public readonly sobrenome: string
