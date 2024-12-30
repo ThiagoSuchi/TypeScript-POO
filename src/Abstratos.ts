@@ -24,6 +24,13 @@ export abstract class Personagem {
     abstract bordao(): void;
 }
 
+/* O atributo ou método marcado como abstract só pode ser declarado em uma classe abstrata. 
+Um atributo abstract é um tipo de propriedade que precisa ser obrigatoriamente definida em 
+qualquer classe concreta que herde da classe abstrata. */
+
+/* OBS: Diferente de um método abstrato, um atributo abstrato não tem valor ou 
+implementação diretamente; ele serve apenas como especificação.*/
+
 // Subclasses
 export class Guerreira extends Personagem {
     protected emoji = '\u{1F9DD}';
