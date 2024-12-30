@@ -42,7 +42,7 @@ export class Aluno extends Pessoa {// extends indica que uma class está herdand
 
 // Polimorfismo:
 export class Professor extends Pessoa {
-    // Em resumo polimorfismo é o mesmo método pode ter comportamentos diferentes em classes distintas.
+    // Em resumo polimorfismo é, o mesmo método, pode ter comportamentos diferentes em classes distintas.
     getNomeCompleto(): string {
         return 'Este é o(a) Professor(a): ' + this.nome + ' ' + this.sobrenome;
     }
