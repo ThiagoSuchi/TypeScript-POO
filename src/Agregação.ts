@@ -29,6 +29,8 @@ const produto2 = new Produto('Sinto de Couro Masculino', 9.90);
 const produto3 = new Produto('Tênis Esportivo - Nike', 690.53);
 const produto4 = new Produto('Shorts Esportivo - Nike', 220.60);
 
+// Na agregação você injeta uma classe de fora pra dentro
+
 const carrinhoDeCompras = new CarrinhoCompras();
 carrinhoDeCompras.inserirProdutos(produto1, produto2, produto3, produto4)
 
