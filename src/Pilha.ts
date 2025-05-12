@@ -1,4 +1,4 @@
-class Pilha<T> {
+class Stack<T> {
     private items: T[] = [];
 
     // Adciona ao fim da fila
@@ -21,11 +21,11 @@ class Pilha<T> {
     }
 }
 
-const pilha = new Pilha<number>();
-pilha.push(10);
-pilha.push(20);
-console.log(pilha.peek());
-pilha.pop();
-console.log(pilha.peek());
-pilha.pop();
-console.log(pilha.isEmpty());
+const stack = new Stack<number>();
+stack.push(10);
+stack.push(20);
+console.log(stack.peek());
+stack.pop();
+console.log(stack.peek());
+stack.pop();
+console.log(stack.isEmpty());
