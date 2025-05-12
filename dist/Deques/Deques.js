@@ -1,90 +1,70 @@
-class Deque<T> {
-    private items: (T | undefined)[];
-    private capacityLimit: number;
-    private front: number;
-    private rear: number;
-    private count: number;
-
-    constructor(capacity: number) {
+"use strict";
+class Deque {
+    constructor(capacity) {
         this.capacityLimit = capacity;
-        this.items = new Array<T | undefined>(capacity);
+        this.items = new Array(capacity);
         this.front = 0;
         this.rear = 0;
         this.count = 0;
     }
-
-    addFirst(item: T): void {
+    addFirst(item) {
         if (this.count === this.capacityLimit) {
             throw new Error("Deque está cheio");
         }
-
         this.front = (this.front - 1 + this.capacityLimit) % this.capacityLimit;
         this.items[this.front] = item;
         this.count++;
     }
-
-    addLast(item: T): void {
+    addLast(item) {
         if (this.count === this.capacityLimit) {
             throw new Error("Deque está cheio");
         }
-
         this.items[this.rear] = item;
         this.rear = (this.rear + 1) % this.capacityLimit;
         this.count++;
     }
-
-    removeFirst(): T {
+    removeFirst() {
         if (this.count === 0) {
             throw new Error("Deque está vazio.");
         }
-
         const item = this.items[this.front];
         this.items[this.front] = undefined; // evita memory leak
         this.front = (this.front + 1) % this.capacityLimit;
         this.count--;
-
-        return item!;
+        return item;
     }
-
-    removeLast(): T {
+    removeLast() {
         if (this.count === 0) {
             throw new Error("Deque está vazio.");
         }
-
         this.rear = (this.rear - 1 + this.capacityLimit) % this.capacityLimit;
         const item = this.items[this.rear];
         this.items[this.rear] = undefined; // evita memory leak
         this.count--;
-
-        return item!;
+        return item;
     }
-
-    peekFirst(): T | undefined {
-        if (this.count === 0) return undefined;
+    peekFirst() {
+        if (this.count === 0)
+            return undefined;
         return this.items[this.front];
     }
-
-    peekLast(): T | undefined {
-        if (this.count === 0) return undefined;
+    peekLast() {
+        if (this.count === 0)
+            return undefined;
         const lastIndex = (this.rear - 1 + this.capacityLimit) % this.capacityLimit;
         return this.items[lastIndex];
     }
-
-    size(): number {
+    size() {
         return this.count;
     }
-
-    capacity(): number {
+    capacity() {
         return this.capacityLimit;
     }
 }
-
-const deque = new Deque<number>(5);
-
-deque.addLast(40)
+const deque = new Deque(5);
+deque.addLast(40);
 deque.addFirst(15);
 deque.addLast(60);
-
 console.log(deque.peekFirst());
 console.log(deque.peekLast());
 console.log(deque.removeFirst());
